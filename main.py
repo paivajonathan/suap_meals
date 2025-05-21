@@ -80,12 +80,11 @@ class SuapDriver:
         
         if elements:
             message_text = elements[0].text.strip()
+            print(f"Erro: {message_text}")
+            return
+
+        print("Reserva realizada com sucesso! ✅")            
         
-            if "já possui reserva" in message_text:
-                print("Já há uma reserva feita para esta refeição! ❌")
-        else:
-            print("Reserva realizada com sucesso! ✅")
-            
         sleep(1)
 
     def __wait_for_element(self, by, value, timeout=10):
