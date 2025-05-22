@@ -1,4 +1,20 @@
-# Como executar o projeto localmente
+# Como Executar Automaticamente via GitHub
+## 1. Faça um Fork do Projeto
+- No canto superior direito, clique no botão "Fork";
+- Clique no botão verde para confirmar.
+## 2. Configure as Credenciais do SUAP
+- Tendo posse de seu próprio repositório, acesse o menu de "Settings", no centro da tela;
+- Role para baixo até poder visualizar o item "Secrets and Variables" na barra da esquerda e clique nele;
+- Clique na opção que irá aparecer, nomeada "Actions";
+- No último tópico, de "Repository secrets", dois pares chave-valor, a partir do botão "New repository secret":
+  1. **Name:** *SUAP_USERNAME* | **Secret:** *[sua_matricula_aqui]*
+  1. **Name:** *SUAP_PASSWORD* | **Secret:** *[sua_senha_aqui]*
+## 3. Por Fim, Aguarde a Execução
+- O próprio GitHub executará o projeto automaticamente, **toda 1:00 da madrugada!**
+
+<br>
+
+# Como Executar Manualmente
 ## 1. Instale o Git no seu Computador
 - Selecione a plataforma desejada nesse link: [Clique Aqui](https://git-scm.com/downloads);
 - Clique em próximo até concluir a instalação.
@@ -20,3 +36,4 @@
 - Não se preocupe, essas informações são utilizadas apenas por você.
 ## 7. Por fim, Execute o Projeto
 - Execute o comando `run.bat` para executar o projeto.
+
