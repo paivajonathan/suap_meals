@@ -63,7 +63,7 @@ class SuapDriver:
         
         submit_button.click()
         
-        sleep(1)
+        sleep(3)
 
     def book_meal(self):
         print("Reservando refeição...")
@@ -85,7 +85,7 @@ class SuapDriver:
 
         print("Reserva realizada com sucesso! ✅")            
         
-        sleep(1)
+        sleep(3)
 
     def __wait_for_element(self, by, value, timeout=10):
         try:
