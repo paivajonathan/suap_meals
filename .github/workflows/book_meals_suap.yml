@@ -1,4 +1,4 @@
-name: Agender refeições no SUAP
+name: Agendar refeições no SUAP
 on:
   schedule:
     - cron: '0 4 * * *' 
