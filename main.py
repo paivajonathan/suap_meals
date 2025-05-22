@@ -68,6 +68,11 @@ class SuapDriver:
         
         self.__driver.get("https://suap.ifpi.edu.br/ae/refeicoes-do-dia/")
         
+        print(f"Current URL for booking: {self.__driver.current_url}")
+        print(f"Current Title for booking: {self.__driver.title}")
+        self.__driver.save_screenshot("before_book_meal_button_find.png")
+        print("Screenshot 'before_book_meal_button_find.png' saved.")
+
         book_meal_button = self.__wait_for_element(
             By.XPATH, "//a[contains(@href, '/ae/reservar-refeicao/')]"
         )

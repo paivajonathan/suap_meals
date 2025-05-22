@@ -27,3 +27,12 @@ jobs:
           SUAP_PASSWORD: ${{ secrets.SUAP_PASSWORD }}
         run: |
           python main.py
+
+      - name: Upload failure screenshots
+        if: always() # Or use if: failure() if you only want them on actual job failure
+        uses: actions/upload-artifact@v3
+        with:
+          name: selenium-screenshots
+          path: |
+            *.png 
+            # Or specify the directory if you save them to a particular folder
