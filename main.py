@@ -63,8 +63,6 @@ class SuapDriver:
         
         submit_button.click()
         
-        sleep(3)
-
     def book_meal(self):
         print("Reservando refeição...")
         
@@ -80,12 +78,7 @@ class SuapDriver:
         
         if elements:
             message_text = elements[0].text.strip()
-            print(f"Erro: {message_text}")
-            return
-
-        print("Reserva realizada com sucesso! ✅")            
-        
-        sleep(3)
+            print(message_text)
 
     def __wait_for_element(self, by, value, timeout=10):
         try:
@@ -100,9 +93,15 @@ class SuapDriver:
 
 def main():
     suap_driver = SuapDriver("chrome")
+    
     suap_driver.login()
+    sleep(3)
+    
     suap_driver.book_meal()
+    sleep(3)
+    
     suap_driver.quit()
+    sleep(3)
 
 
 if __name__ == "__main__":
