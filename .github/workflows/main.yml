@@ -1,0 +1,29 @@
+name: Agender refeições no SUAP
+on:
+  schedule:
+    - cron: '0 4 * * *' 
+  workflow_dispatch: 
+
+jobs:
+  book_meals_script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run script
+        env:
+          SUAP_USERNAME: ${{ secrets.SUAP_USERNAME }}
+          SUAP_PASSWORD: ${{ secrets.SUAP_PASSWORD }}
+        run: |
+          python main.py
