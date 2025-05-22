@@ -49,6 +49,9 @@ def book_meal():
     book_meal_button = wait_for_element(
         driver, By.XPATH, "//a[contains(@href, '/ae/reservar-refeicao/')]"
     )
+    print("Testando")
+    print("Conteudo do USERNAME:", getenv("SUAP_USERNAME"))
+    print("Conteudo do PASSWORD:", getenv("SUAP_PASSWORD"))
     book_meal_button.click()
 
 username = getenv("SUAP_USERNAME")
