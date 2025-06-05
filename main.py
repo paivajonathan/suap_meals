@@ -55,11 +55,15 @@ class SuapDriver:
         
         self.__driver.get("https://suap.ifpi.edu.br/ae/refeicoes-do-dia/")
         
-        book_meal_button = self.__wait_for_element(
-            By.XPATH, "//a[contains(@href, '/ae/reservar-refeicao/')]"
-        )
+        # Use a more specific XPath if possible, but the original is fine
+        book_meal_button_locator = (By.XPATH, "//a[contains(@href, '/ae/reservar-refeicao/')]")
+
+        # Wait for the button to be clickable, not just present
+        book_meal_button = self.__wait_for_element_to_be_clickable(book_meal_button_locator)
         
-        book_meal_button.click()
+        if book_meal_button:
+            # Use JavaScript to click the button, which is more robust
+            self.__driver.execute_script("arguments[0].click();", book_meal_button)
         
         elements = self.__driver.find_elements(By.ID, "feedback_message")
         
@@ -77,6 +81,16 @@ class SuapDriver:
             return element
         except Exception as e:
             print(f"Error waiting for element: {e}")
+            return None
+
+    def __wait_for_element_to_be_clickable(self, locator, timeout=10):
+        try:
+            element = WebDriverWait(self.__driver, timeout).until(
+                expected_conditions.element_to_be_clickable(locator)
+            )
+            return element
+        except Exception as e:
+            print(f"Error waiting for element to be clickable: {e}")
             return None
 
 
